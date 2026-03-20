@@ -80,7 +80,6 @@ https://anizone.life
 
 프로젝트에 대한 문의사항이나 제안이 있으시다면 이슈를 등록해 주시거나 다음 연락처로 문의해 주세요:
 
-- 이메일: asanaridev@proton.me
 - 텔레그램: @sioaeko
 
 ## 🙏 감사의 말
