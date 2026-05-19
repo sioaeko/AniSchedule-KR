@@ -42,12 +42,18 @@ cd Anischedule-KR
 npm install
 ```
 
-3. 개발 서버 실행
+3. 환경변수 설정
+```bash
+cp .env.example .env
+# .env 파일에 VITE_TMDB_API_KEY 값을 설정
+```
+
+4. 개발 서버 실행
 ```bash
 npm run dev
 ```
 
-4. 빌드
+5. 빌드
 ```bash
 npm run build
 ```
