@@ -1,12 +1,96 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236366f1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3c7 0 9 2.5 9 9s-2 9-9 9-9-2.5-9-9 2-9 9-9'/%3E%3Cpath d='M12 8v4'/%3E%3Cpath d='M12 16h.01'/%3E%3C/svg%3E" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23818cf8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3c7 0 9 2.5 9 9s-2 9-9 9-9-2.5-9-9 2-9 9-9'/%3E%3Cpath d='M12 8v4'/%3E%3Cpath d='M12 16h.01'/%3E%3C/svg%3E" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>백지스케줄 - 일본 애니메이션 편성표</title>
+    <title>BLANK.SCH :: Premium Anime Index</title>
+    <!-- Google Fonts: Outfit (English headings) & Noto Sans KR (Korean text) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Early Global Error Catcher to prevent blank screen on script load errors -->
+    <script>
+      window.addEventListener('error', function(e) {
+        var existing = document.getElementById('early-error-display');
+        if (existing) return;
+        var div = document.createElement('div');
+        div.id = 'early-error-display';
+        div.style.position = 'fixed';
+        div.style.top = '0';
+        div.style.left = '0';
+        div.style.width = '100%';
+        div.style.height = '100%';
+        div.style.backgroundColor = '#000000';
+        div.style.color = '#f87171';
+        div.style.padding = '32px';
+        div.style.zIndex = '9999999';
+        div.style.fontFamily = 'monospace';
+        div.style.fontSize = '12px';
+        div.style.overflowY = 'auto';
+        div.style.boxSizing = 'border-box';
+        div.innerHTML = '<div style="max-width: 600px; margin: 40px auto; background-color: #09090b; border: 1px solid #ef4444; border-radius: 8px; padding: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.8);">' +
+          '<h3 style="margin-top:0;color:#ffffff;font-size:16px;">🚨 [초기 스크립트 실행 오류 감지]</h3>' +
+          '<p style="color:#a1a1aa;font-size:11px;">React가 마운트되기 전에 치명적인 Javascript 에러가 발생했습니다.</p>' +
+          '<div style="background-color:#020203; border:1px solid #18181b; padding:12px; border-radius:6px; margin:16px 0; overflow-x:auto;">' +
+          '<b>메시지:</b> ' + e.message + '<br>' +
+          '<b>파일:</b> ' + e.filename + '<br>' +
+          '<b>라인/열:</b> ' + e.lineno + ':' + e.colno + '<br><br>' +
+          '<b>상세 정보:</b><br>' + (e.error ? (e.error.stack || e.error.toString()) : '알 수 없음') +
+          '</div>' +
+          '<button onclick="localStorage.clear();sessionStorage.clear();location.reload();" style="background-color:#ef4444;color:#ffffff;border:none;border-radius:6px;padding:8px 16px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:8px;">캐시 초기화 및 새로고침</button>' +
+          '<button onclick="location.reload();" style="background-color:#27272a;color:#ffffff;border:1px solid #3f3f46;border-radius:6px;padding:8px 16px;font-size:11px;font-weight:bold;cursor:pointer;">단순 새로고침</button>' +
+          '</div>';
+        
+        if (document.body) {
+          document.body.appendChild(div);
+        } else {
+          window.addEventListener('DOMContentLoaded', function() {
+            document.body.appendChild(div);
+          });
+        }
+      });
+      window.addEventListener('unhandledrejection', function(e) {
+        var existing = document.getElementById('early-error-display');
+        if (existing) return;
+        var div = document.createElement('div');
+        div.id = 'early-error-display';
+        div.style.position = 'fixed';
+        div.style.top = '0';
+        div.style.left = '0';
+        div.style.width = '100%';
+        div.style.height = '100%';
+        div.style.backgroundColor = '#000000';
+        div.style.color = '#f87171';
+        div.style.padding = '32px';
+        div.style.zIndex = '9999999';
+        div.style.fontFamily = 'monospace';
+        div.style.fontSize = '12px';
+        div.style.overflowY = 'auto';
+        div.style.boxSizing = 'border-box';
+        div.innerHTML = '<div style="max-width: 600px; margin: 40px auto; background-color: #09090b; border: 1px solid #ef4444; border-radius: 8px; padding: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.8);">' +
+          '<h3 style="margin-top:0;color:#ffffff;font-size:16px;">🚨 [비동기 프로미스 예외 감지]</h3>' +
+          '<p style="color:#a1a1aa;font-size:11px;">처리되지 않은 비동기 프로미스 거부 에러가 발생했습니다.</p>' +
+          '<div style="background-color:#020203; border:1px solid #18181b; padding:12px; border-radius:6px; margin:16px 0; overflow-x:auto;">' +
+          '<b>이유:</b> ' + (e.reason ? (e.reason.message || e.reason.toString()) : '알 수 없음') + '<br><br>' +
+          '<b>상세 정보:</b><br>' + (e.reason && e.reason.stack ? e.reason.stack : 'N/A') +
+          '</div>' +
+          '<button onclick="localStorage.clear();sessionStorage.clear();location.reload();" style="background-color:#ef4444;color:#ffffff;border:none;border-radius:6px;padding:8px 16px;font-size:11px;font-weight:bold;cursor:pointer;margin-right:8px;">캐시 초기화 및 새로고침</button>' +
+          '<button onclick="location.reload();" style="background-color:#27272a;color:#ffffff;border:1px solid #3f3f46;border-radius:6px;padding:8px 16px;font-size:11px;font-weight:bold;cursor:pointer;">단순 새로고침</button>' +
+          '</div>';
+        
+        if (document.body) {
+          document.body.appendChild(div);
+        } else {
+          window.addEventListener('DOMContentLoaded', function() {
+            document.body.appendChild(div);
+          });
+        }
+      });
+    </script>
   </head>
-  <body>
+  <body class="antialiased">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
