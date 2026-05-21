@@ -4,7 +4,7 @@
 > *A hyper-minimal, distraction-free weekly anime broadcast index crafted for purists.*
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/c56f14a0-7b77-4fe7-915c-46ce8f13e2b3" alt="blank.sch preview" width="100%" />
+  <img src="./public/preview.png" alt="blank.sch preview" width="100%" />
 </p>
 
 ---
